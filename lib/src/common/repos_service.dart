@@ -174,7 +174,7 @@ class RepositoriesService extends Service {
       'has_issues': hasIssues!,
       'has_wiki': hasWiki!,
       'has_downloads': hasDownloads!,
-      'default_branch': 'defaultBranch'
+      'default_branch': 'main'
     });
     return github.postJSON(
       '/repos/${slug.fullName}',
