@@ -213,10 +213,10 @@ class IssuesService extends Service {
   ///
   /// API docs: https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
   Stream<IssueComment> listCommentsByIssue(
-      RepositorySlug slug, int issueNumber) {
+      RepositorySlug slug, int issueNumber, int page, int number) {
     return PaginationHelper(github).objects(
         'GET',
-        '/repos/${slug.fullName}/issues/$issueNumber/comments',
+        '/repos/${slug.fullName}/issues/$issueNumber/comments?per_page=$number&page=$page',
         (dynamic i) => IssueComment.fromJson(i));
   }
 
